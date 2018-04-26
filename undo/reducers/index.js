@@ -4,7 +4,7 @@ import counter from './counter';
 
 const rootReducer = combineReducers(
     {counter: undoable(counter, {
-        filter: includeAction('DECREMENT'),
+        filter: includeAction(['INCREMENT','DECREMENT']),
         limit: 10,
         debug: true,
         undoType: 'UNDO_INCREMENT',
