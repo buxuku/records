@@ -4,6 +4,6 @@ import * as Actions from '../actions';
 import Counter from '../components';
 
 export default connect(
-    state => ({counter: state}),
+    state => ({counter: state.counter}),
     Actions
 )(Counter)

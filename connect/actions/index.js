@@ -11,7 +11,8 @@ export function decrement() {
 
 export function incrementIfOdd() {
     return (dispatch, getState) => {
-        if (getState() % 2 === 0) {
+        const { counter } = getState();
+        if (counter % 2 === 0) {
             return;
         }
         dispatch(increment());
