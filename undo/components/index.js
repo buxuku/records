@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Counter({counter, increment, decrement, incrementIfOdd, incrementSync, undo, redo}) {
+function Counter({counter, increment, decrement, incrementIfOdd, incrementSync, undo, redo, incrementDouble}) {
     return (
         <div>
             <p>{counter}</p>
@@ -8,6 +8,7 @@ function Counter({counter, increment, decrement, incrementIfOdd, incrementSync, 
             <button onClick={decrement}>decrement</button>{' '}
             <button onClick={incrementIfOdd}>incrementIfOdd</button>{' '}
             <button onClick={incrementSync}>incrementSync</button>{' '}
+            <button onClick={incrementDouble}>incrementDouble</button>{' '}
             <button onClick={undo}>undo</button>{' '}
             <button onClick={redo}>redo</button>{' '}
         </div>

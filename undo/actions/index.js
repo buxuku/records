@@ -36,3 +36,9 @@ export function redo() {
         type: 'REDO_INCREMENT'
     }
 }
+
+export function incrementDouble() {
+    return {
+        type: 'INCREMENT_DOUBLE'
+    }
+}
