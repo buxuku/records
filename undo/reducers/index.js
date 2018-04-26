@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
-import undoable from 'redux-undo';
+import undoable, { includeAction } from 'redux-undo';
 import counter from './counter';
 
 const rootReducer = combineReducers(
     {counter: undoable(counter, {
+        filter: includeAction('DECREMENT'),
         limit: 10,
         debug: true,
         undoType: 'UNDO_INCREMENT',
