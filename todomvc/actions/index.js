@@ -4,3 +4,10 @@ export function addTodo(text) {
         text
     }
 }
+
+export function completedTodo(id) {
+    return {
+        type: 'COMPLETED_TODO',
+        id
+    }
+}

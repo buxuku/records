@@ -13,6 +13,7 @@ function App({todos, actions}) {
             />
             <MainSection
                 todos={todos}
+                actions={actions}
             />
         </div>
     )

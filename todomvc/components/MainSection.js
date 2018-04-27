@@ -6,11 +6,11 @@ class MainSection extends React.Component{
         this.state={}
     }
     render() {
-        const { todos } = this.props;
+        const { todos, actions } = this.props;
         return (
             <section className="main">
                 <ul className="todo-list">
-                    {todos.map(item => <TodoItem key={item.text} value={item.text} />)}                    
+                    {todos.map(item => <TodoItem key={item.id} todo={item} {...actions} />)}                    
                 </ul>
             </section>
         )

@@ -12,6 +12,10 @@ export default function todos(state = defaultState, action) {
             completed: false,
             id: state.reduce((maxId, todo) => Math.max(maxId, todo.id), -1) +1,
         }, ...state];
+        case 'COMPLETED_TODO':
+        return state.map( item => item.id === action.id
+            ? Object.assign(item, {}, {completed: !item.completed})
+            : item)
         default:
         return state;
     }
