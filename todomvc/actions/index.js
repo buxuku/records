@@ -11,3 +11,10 @@ export function completedTodo(id) {
         id
     }
 }
+
+export function removedTodo(id) {
+    return {
+        type: 'REMOVED_TODO',
+        id
+    }
+}

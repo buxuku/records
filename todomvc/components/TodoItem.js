@@ -5,7 +5,7 @@ class TodoItem extends React.Component{
         super(props, context);
     }
     render(){
-        const { todo, completedTodo } = this.props;
+        const { todo, completedTodo, removedTodo } = this.props;
         const element = (
             <div className="view">
                 <input
@@ -17,7 +17,7 @@ class TodoItem extends React.Component{
                 <label>
                     {todo.text}
                 </label>
-                <button className="destroy" />
+                <button onClick={() => removedTodo(todo.id)} className="destroy" />
             </div>
         )
         return (
