@@ -15,7 +15,11 @@ class TodoItem extends React.Component{
     }
     handleSave = (id, text) => {
         this.props.editTodo(id, text);
-        this.setState({ editing: false});
+        if(text) {
+          this.setState({ editing: false});
+        } else {
+            this.props.removedTodo(id);
+        }
     }
     render(){
         const { todo, completedTodo, removedTodo } = this.props;
