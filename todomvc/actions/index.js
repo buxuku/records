@@ -26,3 +26,9 @@ export function editTodo(id, text) {
         text
     }
 }
+
+export function onClearCompleted() {
+    return {
+        type: 'CLEAR_COMPLETED',
+    }
+}

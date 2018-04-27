@@ -22,6 +22,8 @@ export default function todos(state = defaultState, action) {
         return state.map( item => item.id === action.id
             ? Object.assign(item, {}, {text: action.text})
             : item);
+        case 'CLEAR_COMPLETED':
+        return state.filter( item => !item.completed);
         default:
         return state;
     }

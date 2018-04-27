@@ -33,6 +33,18 @@ class Footer extends React.Component{
             </a>
         )
     }
+    renderClearButton = () => {
+        const { completedCount, onClearCompleted } = this.props;
+        if (completedCount) {
+            console.log("in");
+            return (
+                <button className="clear-completed" onClick={onClearCompleted}>
+                    clear completed
+                </button>
+            )
+        }
+        return null;
+    }
     render() {
         return (
             <footer className="footer">
@@ -42,6 +54,7 @@ class Footer extends React.Component{
                     ['SHOW_ALL','SHOW_ACTIVE','SHOW_COMPLETED'].map( item => <li key={item}>{this.renderFilterLink(item)}</li>)
                 }
                 </ul>
+                {this.renderClearButton()}
             </footer>
         )
     }

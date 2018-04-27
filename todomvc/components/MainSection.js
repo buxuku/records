@@ -20,7 +20,7 @@ class MainSection extends React.Component{
         })
     }
     renderFooter = (completedCount) => {
-        const { todos } = this.props;
+        const { todos, actions } = this.props;
         const activeCount = todos.length - completedCount;
         const { filter } = this.state;
         if (todos.length) {
@@ -30,6 +30,7 @@ class MainSection extends React.Component{
                     activeCount={activeCount}
                     filter={filter}
                     onShow={this.handleShow}
+                    onClearCompleted={actions.onClearCompleted}
                 />
             )
         } 
