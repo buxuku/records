@@ -5,7 +5,7 @@ class TodoTextInput extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            text: this.props.text || ''
+            text: this.props.value || ''
         }
     }
     handleInput  = (e) => {

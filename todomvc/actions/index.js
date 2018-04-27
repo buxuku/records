@@ -18,3 +18,11 @@ export function removedTodo(id) {
         id
     }
 }
+
+export function editTodo(id, text) {
+    return {
+        type: 'EDIT_TODO',
+        id,
+        text
+    }
+}

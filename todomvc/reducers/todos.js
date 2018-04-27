@@ -18,6 +18,10 @@ export default function todos(state = defaultState, action) {
             : item)
         case 'REMOVED_TODO':
         return state.filter(item => item.id !== action.id);
+        case 'EDIT_TODO':
+        return state.map( item => item.id === action.id
+            ? Object.assign(item, {}, {text: action.text})
+            : item);
         default:
         return state;
     }
