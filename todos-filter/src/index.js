@@ -1,16 +1,14 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
-import App from './components/App'
-import reducer from './reducers'
-import 'todomvc-app-css/index.css'
-
-const store = createStore(reducer)
-
-render(
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./components/App";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import reducers from "./reducers";
+import "todomvc-app-css/index.css";
+const store = createStore(reducers,  window.devToolsExtension ? window.devToolsExtension() : f => f);
+ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root')
-)
+  document.getElementById("root")
+);

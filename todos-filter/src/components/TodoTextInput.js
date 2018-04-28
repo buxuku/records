@@ -7,10 +7,19 @@ export default class TodoTextInput extends React.Component {
             text: e.target.value
         })
     }
+    handleSubmit = (e) => {
+        if (e.which === 13) {
+            this.props.onSave(this.state.text);
+            this.setState({
+                text: ''
+            })
+        }
+    }
     render() {
         return (<input
           value={this.state.text}
           onChange={this.handleChange}
+          onKeyDown={this.handleSubmit}
         />);
     }
 }
