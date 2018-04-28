@@ -5,7 +5,7 @@ import Header from '../components/Header';
 import MainSection from '../components/MainSection';
 import * as TodoActions from '../actions';
 
-function App({todos, actions}) {
+function App({todos,filter, actions}) {
     return (
         <div>
             <Header
@@ -14,6 +14,7 @@ function App({todos, actions}) {
             <MainSection
                 todos={todos}
                 actions={actions}
+                filter={filter}
             />
         </div>
     )
@@ -21,7 +22,8 @@ function App({todos, actions}) {
 
 function mapStateToProps(state) {
     return {
-        todos: state.todos
+        todos: state.todos,
+        filter: state.filter
     }
 }
 function mapDispatchToProps(dispatch) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import TodoItem from './TodoItem'
-import Footer from './Footer';
+import Footer from '../containers/Footer';
 
 const TODO_FILTERS = {
     'SHOW_ALL': () => true,
@@ -38,13 +38,13 @@ class MainSection extends React.Component{
     render() {
         const { todos, actions } = this.props;
         const completedCount = todos.reduce((count, todo) => todo.completed ? count + 1 : count, 0);
-        const filterTodos = todos.filter(TODO_FILTERS[this.state.filter]);
+        const filterTodos = todos.filter(TODO_FILTERS[this.props.filter]);
         return (
             <section className="main">
                 <ul className="todo-list">
                     {filterTodos.map(item => <TodoItem key={item.id} todo={item} {...actions} />)}                    
                 </ul>
-                {this.renderFooter(completedCount)}
+                <Footer />
             </section>
         )
     }
