@@ -3,3 +3,9 @@ export function showCompleted(){
         type: 'SHOW_COMPLETED'
     }
 }
+
+export function showAll(){
+    return {
+        type: 'SHOW_ALL'
+    }
+}
