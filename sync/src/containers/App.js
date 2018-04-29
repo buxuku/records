@@ -22,7 +22,7 @@ class App extends Component{
         this.props.dispatch(selectedReddit(reddit));
     }
     render() {
-        const { selectedReddit,posts } = this.props;
+        const { selectedReddit,posts,isFetching,lastUpdate } = this.props;
         return (
             <div>
                 <Picker
@@ -30,9 +30,16 @@ class App extends Component{
                   onChange={this.handleChange}
                   options={['reactjs','frontend']}
                 />
+                <p>
+                    {lastUpdate &&
+                    <span>last update at { new Date(lastUpdate).toLocaleTimeString()}
+                    </span>}
+                </p>
+                {isFetching ? 'loading' :
                 <Posts
                   items={posts}
                 />
+        }
             </div>
         )
     }
@@ -42,7 +49,7 @@ function mapStateToProps(state) {
     const { selectedReddit, postByReddit } = state;
     const {
         isFetching,
-        lastUpdated,
+        lastUpdate,
         items: posts
     } = postByReddit[selectedReddit] || {
         isFetching: true,
@@ -51,7 +58,7 @@ function mapStateToProps(state) {
     return {
         selectedReddit,
         posts,
-        lastUpdated,
+        lastUpdate,
         isFetching
     }
 }
