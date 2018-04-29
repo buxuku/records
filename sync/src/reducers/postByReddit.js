@@ -3,7 +3,7 @@ import { RECEIVE_POSTS, REQUEST_POSTS,INVALIDATE_REDDIT } from '../actions';
 function posts(state = {
     isFetching: false,
     invalidate: false,
-    item: [],
+    items: [],
 }, action) {
     switch(action.type) {
         case INVALIDATE_REDDIT:

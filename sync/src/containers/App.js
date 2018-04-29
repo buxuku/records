@@ -2,6 +2,7 @@ import React,{ Component } from 'react';
 import { connect } from 'react-redux';
 import Picker from '../components/Picker';
 import { selectedReddit, fetchPostIfNeeded } from '../actions';
+import Posts from '../components/Posts';
 
 class App extends Component{
     constructor(props){
@@ -11,17 +12,26 @@ class App extends Component{
         const {dispatch, selectedReddit} = this.props;
         dispatch(fetchPostIfNeeded(selectedReddit));
     }
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.selectedReddit !== this.props.selectedReddit) {
+            const {dispatch, selectedReddit} = nextProps;
+            dispatch(fetchPostIfNeeded(selectedReddit));
+        }
+    }
     handleChange = (reddit) => {
         this.props.dispatch(selectedReddit(reddit));
     }
     render() {
-        const { selectedReddit } = this.props;
+        const { selectedReddit,posts } = this.props;
         return (
             <div>
                 <Picker
-                  value="react"
+                  value={selectedReddit}
                   onChange={this.handleChange}
-                  options={['react','redux']}
+                  options={['reactjs','frontend']}
+                />
+                <Posts
+                  items={posts}
                 />
             </div>
         )
