@@ -1,11 +1,15 @@
 import React,{ Component } from 'react';
 import { connect } from 'react-redux';
 import Picker from '../components/Picker';
-import { selectedReddit } from '../actions';
+import { selectedReddit, fetchPostIfNeeded } from '../actions';
 
 class App extends Component{
     constructor(props){
         super(props);
+    }
+    componentDidMount() {
+        const {dispatch, selectedReddit} = this.props;
+        dispatch(fetchPostIfNeeded(selectedReddit));
     }
     handleChange = (reddit) => {
         this.props.dispatch(selectedReddit(reddit));
