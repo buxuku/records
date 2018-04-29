@@ -4,7 +4,7 @@ export const REQUEST_POSTS = 'REQUEST_POSTS';
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 export const INVALIDATE_REDDIT = 'INVALIDATE_REDDIT';
 
-export function sleectReddit(reddit) {
+export function selectedReddit(reddit) {
     return {
         type: SELECT_REDDIT,
         reddit,
