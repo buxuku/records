@@ -13,7 +13,7 @@ export function selectedReddit(reddit) {
 
 export function invalidateReddit(reddit) {
     return {
-        typd:INVALIDATE_REDDIT,
+        type:INVALIDATE_REDDIT,
         reddit
     }
 }

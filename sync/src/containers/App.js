@@ -1,7 +1,7 @@
 import React,{ Component } from 'react';
 import { connect } from 'react-redux';
 import Picker from '../components/Picker';
-import { selectedReddit, fetchPostIfNeeded } from '../actions';
+import { selectedReddit, fetchPostIfNeeded,invalidateReddit } from '../actions';
 import Posts from '../components/Posts';
 
 class App extends Component{
@@ -21,6 +21,12 @@ class App extends Component{
     handleChange = (reddit) => {
         this.props.dispatch(selectedReddit(reddit));
     }
+    handleRefresh = (e) => {
+        e.preventDefault();
+        const { dispatch, selectedReddit } = this.props;
+        dispatch(invalidateReddit(selectedReddit));
+        dispatch(fetchPostIfNeeded(selectedReddit));
+    }
     render() {
         const { selectedReddit,posts,isFetching,lastUpdate } = this.props;
         return (
@@ -34,6 +40,15 @@ class App extends Component{
                     {lastUpdate &&
                     <span>last update at { new Date(lastUpdate).toLocaleTimeString()}
                     </span>}
+                    {'  '}
+                    {!isFetching &&
+                      <a
+                        href="#"
+                        onClick={this.handleRefresh}
+                      >
+                          Refresh
+                      </a>
+                    }
                 </p>
                 {isFetching ? 'loading' :
                 <Posts
